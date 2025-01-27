@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Movie from './Movie';
+
 const tempMovieData = [
   {
     imdbID: "tt1375666",
@@ -23,13 +22,6 @@ const tempMovieData = [
       "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
   },
 ];
-export default function MovieList() {
-  const [movies, setMovies] = useState(tempMovieData);
-  return (
-    <ul className="list">
-      {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
-      ))}
-    </ul>
-  )
-}
+
+export default tempMovieData;
+

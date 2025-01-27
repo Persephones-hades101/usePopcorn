@@ -1,14 +1,12 @@
-import ListBox from './movie-list-component/ListBox'
-import WatchedBox from './watched-movie-list-component/WatchedBox';
 
 
-export default function Main() {
+
+export default function Main({ children }) {
 
 
   return (
     <main className="main">
-      <ListBox />
-      <WatchedBox />
+      {children}
     </main>
   )
 }
