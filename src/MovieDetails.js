@@ -52,6 +52,13 @@ export default function MovieDetails({ selectedMovieId, onCloseSelectedMovie, on
     }
     fetchMovieDetails()
   }, [selectedMovieId])
+
+  useEffect(function () {
+    if (!title) return;
+    document.title = `Movie | ${title}`
+  }, [title])
+
+
   return (
     <>
       {isLoading ? <Loader /> : (
