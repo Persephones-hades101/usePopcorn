@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import StarRating from './StarRating'
 import Loader from "./Loader"
+import { useKey } from "./useKey"
 const KEY = '66bed1a5'
 export default function MovieDetails({ selectedMovieId, onCloseSelectedMovie, onAddWatched, watched }) {
 
@@ -41,20 +42,9 @@ export default function MovieDetails({ selectedMovieId, onCloseSelectedMovie, on
     onCloseSelectedMovie()
   }
 
-  useEffect(function () {
+  useKey("Escape", onCloseSelectedMovie)
 
-    const callback = (e) => {
-      if (e.code === 'Escape') {
-        onCloseSelectedMovie()
-      }
-    }
 
-    document.addEventListener('keydown', callback)
-
-    return function () {
-      document.removeEventListener('keydown', callback)
-    }
-  }, [onCloseSelectedMovie])
 
   useEffect(function () {
     async function fetchMovieDetails() {
