@@ -43,6 +43,8 @@ export default function App() {
   }
 
 
+
+
   useEffect(function () {
 
     const controller = new AbortController()
@@ -77,6 +79,7 @@ export default function App() {
       return;
     }
 
+    handleCloseSelectedMovie()
     fetchMovies()
 
     return function () {
