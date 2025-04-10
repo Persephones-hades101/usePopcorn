@@ -12,8 +12,6 @@ import Summary from './Summary';
 import { useLocalStorageState } from './useLocalStorageState';
 import WatchedList from './WatchedList';
 
-const KEY = '22f0052';
-
 export default function App() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -38,6 +36,9 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
+  if (!process.env.REACT_APP_API_KEY) {
+    throw new Error('API key is missing - check your environment variables');
+  }
 
   useEffect(
     function () {
@@ -47,7 +48,7 @@ export default function App() {
         try {
           setIsLoading(true);
           setError('');
-          const omdbApiEndpoint = `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`;
+          const omdbApiEndpoint = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${query}`;
           const res = await fetch(omdbApiEndpoint, {
             signal: controller.signal,
           });
