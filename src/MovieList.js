@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react';
 import Movie from './Movie';
 
-export default function MovieList({ movies, onSelectedMovie, onCloseSelectedMovie }) {
-
+export default function MovieList({
+  movies,
+  onSelectedMovie,
+  onCloseSelectedMovie,
+}) {
   return (
     <ul className="list list-movies">
       {movies?.map((movie) => (
@@ -14,5 +17,5 @@ export default function MovieList({ movies, onSelectedMovie, onCloseSelectedMovi
         />
       ))}
     </ul>
-  )
+  );
 }
