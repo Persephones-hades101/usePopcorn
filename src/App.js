@@ -48,7 +48,7 @@ export default function App() {
         try {
           setIsLoading(true);
           setError('');
-          const omdbApiEndpoint = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${query}`;
+          const omdbApiEndpoint = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${query}`;
           const res = await fetch(omdbApiEndpoint, {
             signal: controller.signal,
           });
